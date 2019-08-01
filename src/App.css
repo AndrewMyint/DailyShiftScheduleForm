@@ -12,3 +12,7 @@
   border: 2px solid blue;
   height: auto;
 }
+
+.labelStyle {
+  display: block;
+}

@@ -13,8 +13,8 @@ const Options = props => {
 
   return (
     <>
-      <Field component="select">{option}</Field>
-      <Field component="select">{option}</Field>
+      <Field component="select" name={`${props.day}StartDate`}>{option}</Field>
+      <Field component="select" name={`${props.day}EndDate`}>{option}</Field>
     </>
   );
 };

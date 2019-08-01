@@ -14,9 +14,14 @@ var totalDays = [
 const ShiftDetails = props => {
   const DailyShift = totalDays.map(day => {
     return (
-      <label type="text">
-        {day} <Options />
-      </label>
+      <>
+      <div >
+        <label type="text" name={day}>
+          {day} <Options day={day}/>
+        </label>
+      </div>
+      <br/>
+      </>
     );
   });
   return <>{DailyShift}</>;
