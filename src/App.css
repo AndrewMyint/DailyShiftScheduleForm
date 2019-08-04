@@ -1,8 +1,33 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
+}
+.frm-to-label {
+  text-align: right;
+  margin-left: 55%;
+}
+.techName {
+  display: block;
 }
 
+.custom-form {
+  margin: auto;
+}
+.custom-toggle {
+  margin: auto;
+  padding: 40px;
+}
+.custom-label {
+  display: block;
+  margin: 8px;
+  margin-right: 100px;
+  /* padding-right: 40px; */
+}
+.custom-control {
+  width: 50px;
+}
+.custom-namelist {
+  height: 200px;
+}
 .rowStyle {
   border: 2px solid green;
   height: auto;
@@ -15,4 +40,86 @@
 
 .labelStyle {
   display: block;
+  height: auto;
+}
+
+.scrollable-menu {
+  max-height: 300px;
+  overflow: scroll;
+  padding: 2px;
+}
+
+.shiftDetail {
+  display: block;
+}
+
+.shiftDetail .label_day {
+  text-align: left;
+  width: 120px;
+}
+.form-control .custom_option {
+  width: 10px;
+}
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  width: 300px;
+  height: 38px;
+  padding: 10px 20px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+}
+
+.react-autosuggest__input--focused {
+  outline: none;
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  position: relative;
+  display: none;
+}
+
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: absolute;
+  top: 51px;
+  width: 280px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  z-index: 2;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #ddd;
 }
