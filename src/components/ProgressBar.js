@@ -5,7 +5,7 @@ const ProgressBar = props => {
   for (let i in props) {
     if (props[i] !== "") {
       progressBar.push(
-        <div className="progress-bar bg-success" style={{ width: "25%" }}>
+        <div key={i} className="progress-bar bg-success" style={{ width: "25%" }}>
           {i}
         </div>
       );

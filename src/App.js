@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Formik } from "formik";
+import { Formik } from "formik";
 import { name } from "faker";
 import * as Yup from "yup";
 import generateValitationShape from "./components/js/helper";
@@ -25,7 +25,25 @@ const App = () => {
         ShiftDetails: ""
       }}
       onSubmit={values => {
-        alert(JSON.stringify(values));
+        let obj = {};
+        obj.shiftType = values.ShiftType;
+        obj.techLead = values.techName;
+        obj.expirationDate = values.expireDate;
+        obj.shiftDetails = [];
+        let temp = Object.keys(values.ShiftDetails);
+        temp.forEach((value, index) => {
+          let tempObj = {};
+          tempObj.day = value;
+          tempObj.startDate = values.ShiftDetails[value].startDate
+            ? `${values.ShiftDetails[value].startDate}:00`
+            : `00`;
+          tempObj.endDate = values.ShiftDetails[value].endDate
+            ? `${values.ShiftDetails[value].endDate}:00`
+            : `00`;
+            obj.shiftDetails.push(tempObj);
+        });
+        // console.log(obj);
+        alert(JSON.stringify(obj, null, 2));
       }}
       validationSchema={Yup.object().shape(generateValitationShape(nameList))}
       render={props => (
