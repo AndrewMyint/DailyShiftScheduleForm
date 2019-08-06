@@ -6,40 +6,38 @@ const Options = props => {
   for (let i = 0; i <= 12; i++) {
     if (i === 0) {
       option.push(
-        <option className="" value={"-"}>
+        <option key={`startTime-${i}`} value={"-"}>
           -
         </option>
       );
     } else {
       option.push(
-        <option className="" value={`${i}`}>
+        <option key={`endTime-${i}`} value={`${i}`}>
           {i}
         </option>
       );
     }
   }
-
   return (
     <>
-      <div className='col col-3'>
+      <div className='col col-3' >
         <Field
-          className="form-control custom-control "
+          className="form-control custom-control"
           component="select"
-          name={`${props.day}StartDate`}
+          name={`${props.day}.startDate`}
         >
           {option}
         </Field>
       </div>
       <div className='col col-3'>
         <Field
-          className="form-control custom-control "
+          className="form-control custom-control"
           component="select"
-          name={`${props.day}EndDate`}
+          name={`${props.day}.endDate`}
         >
           {option}
         </Field>
       </div>
-      {/* <div></div> */}
     </>
   );
 };

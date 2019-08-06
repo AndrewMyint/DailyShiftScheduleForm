@@ -1,14 +1,16 @@
-import React from 'react';
-import Autosuggest from 'react-autosuggest';
+import React from "react";
+import Autosuggest from "react-autosuggest";
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (namesList, value) => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
 
-  return inputLength === 0 ? [] : namesList.filter(value =>
-    value.name.toLowerCase().slice(0, inputLength) === inputValue
-  );
+  return inputLength === 0
+    ? []
+    : namesList.filter(
+        value => value.name.toLowerCase().slice(0, inputLength) === inputValue
+      );
 };
 
 // When suggestion is clicked, Autosuggest needs to populate the input
@@ -17,11 +19,7 @@ const getSuggestions = (namesList, value) => {
 const getSuggestionValue = suggestion => suggestion.name;
 
 // Use your imagination to render suggestions.
-const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-  </div>
-);
+const renderSuggestion = suggestion => <div>{suggestion.name}</div>;
 
 class SearchBar extends React.Component {
   constructor() {
@@ -33,7 +31,7 @@ class SearchBar extends React.Component {
     // Suggestions also need to be provided to the Autosuggest,
     // and they are initially empty because the Autosuggest is closed.
     this.state = {
-      value: '',
+      value: "",
       suggestions: []
     };
   }
@@ -61,24 +59,40 @@ class SearchBar extends React.Component {
 
   render() {
     const { value, suggestions } = this.state;
-
+    console.log(value);
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: 'Type a tech name',
+      placeholder: "Type a tech name",
       value,
       onChange: this.onChange
     };
 
     // Finally, render it!
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-      />
+      <>
+        <label style={{ display: "block" }} htmlFor="searchbar">
+          Search Name:
+        </label>
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps}
+        />
+        <button
+          type="button"
+          className="btn btn-outline-secondary"
+          onClick={() => {
+            console.log(value);
+            this.props.setFieldValue("techName", value);
+            this.props.setTechName(value);
+          }}
+        >
+          Choose
+        </button>
+      </>
     );
   }
 }
